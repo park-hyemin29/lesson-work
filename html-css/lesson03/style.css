@@ -1,0 +1,253 @@
+:root {
+    --bg: #f5f1ea;
+    --surface: #ffffff;
+    --surface-soft: #fffaf3;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --line: #e5ddd0;
+    --primary: #9a3412;
+    --primary-dark: #7c2d12;
+    --danger: #b91c1c;
+    --danger-dark: #991b1b;
+    --success-bg: #ecfdf3;
+    --success-border: #86efac;
+    --error-bg: #fff1f2;
+    --error-border: #fda4af;
+    --shadow: 0 18px 40px rgba(42, 31, 18, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+    background: linear-gradient(180deg, #fbf8f3 0%, #f3ede4 100%);
+    color: var(--text);
+}
+
+a {
+    color: inherit;
+}
+
+.app-body {
+    min-height: 100vh;
+}
+
+.page-shell {
+    width: min(960px, calc(100% - 32px));
+    margin: 48px auto;
+}
+
+.narrow-shell {
+    width: min(760px, calc(100% - 32px));
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    padding: 32px;
+}
+
+.stack-sm > * + * {
+    margin-top: 8px;
+}
+
+.stack-md > * + * {
+    margin-top: 16px;
+}
+
+.stack-lg > * + * {
+    margin-top: 24px;
+}
+
+.eyebrow {
+    margin: 0;
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.page-title {
+    margin: 0;
+    font-size: clamp(30px, 4vw, 40px);
+    line-height: 1.15;
+}
+
+.page-text {
+    margin: 0;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.heading-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.button-link,
+.primary-button,
+.danger-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 18px;
+    border-radius: 999px;
+    border: none;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.button-link,
+.primary-button {
+    background: var(--primary);
+    color: #fff;
+}
+
+.button-link:hover,
+.primary-button:hover {
+    background: var(--primary-dark);
+}
+
+.secondary-button {
+    background: var(--surface-soft);
+    color: var(--primary-dark);
+    border: 1px solid #e8d7bf;
+}
+
+.secondary-button:hover {
+    background: #f8ebd8;
+}
+
+.danger-button {
+    background: var(--danger);
+    color: #fff;
+}
+
+.danger-button:hover {
+    background: var(--danger-dark);
+}
+
+.text-link {
+    color: var(--primary-dark);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.text-link:hover,
+.post-link:hover {
+    text-decoration: underline;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field-label {
+    font-weight: 700;
+}
+
+.field-input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d5c6b4;
+    border-radius: 14px;
+    background: #fffdfa;
+    font: inherit;
+}
+
+.field-input:focus {
+    outline: 2px solid #f6c89f;
+    outline-offset: 2px;
+    border-color: #c28e61;
+}
+
+.field-textarea {
+    min-height: 180px;
+    resize: vertical;
+}
+
+.post-list {
+    display: grid;
+    gap: 18px;
+}
+
+.post-card {
+    padding: 22px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: #fffdfa;
+}
+
+.post-title {
+    margin: 0;
+    font-size: 26px;
+}
+
+.post-link {
+    color: var(--primary-dark);
+    text-decoration: none;
+}
+
+.post-body {
+    margin: 0;
+    white-space: pre-wrap;
+    line-height: 1.8;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 0;
+}
+
+@media (max-width: 640px) {
+    .page-shell,
+    .narrow-shell {
+        width: min(100% - 24px, 100%);
+        margin: 24px auto;
+    }
+
+    .card {
+        padding: 22px 18px;
+        border-radius: 18px;
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+
+    .heading-row {
+        flex-direction: column;
+    }
+
+    .actions {
+        width: 100%;
+    }
+
+    .button-link,
+    .primary-button,
+    .danger-button {
+        width: 100%;
+    }
+}
