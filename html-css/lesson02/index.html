@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>practicing_html</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="app-body">
+    <main class="page-shell narrow-shell">
+        <section class="card stack-lg">
+            <div class="stack-sm">
+                <p class="eyebrow">HTML / CSS LESSON 02</p>
+                <h1 class="page-title">submit form</h1>
+                <p class="page-text">受講者が理解度と必要な情報を提出する画面を、HTML と CSS だけで表現します。</p>
+            </div>
+
+            <section class="score-card stack-md">
+                <div class="stack-sm">
+                    <p class="field-label">理解度</p>
+                    <p class="page-text">今の理解度を 1〜10 で選択する想定です。ここでは見た目だけを作ります。</p>
+                </div>
+
+                <div class="level-grid">
+                    <div class="level-box">1</div>
+                    <div class="level-box">3</div>
+                    <div class="level-box is-active">5</div>
+                    <div class="level-box">7</div>
+                    <div class="level-box">10</div>
+                </div>
+            </section>
+
+            <form class="stack-md">
+                <div class="field">
+                    <label class="field-label" for="comment">コメント</label>
+                    <textarea class="field-input field-textarea" id="comment" placeholder="普通の提出時のコメントを書きます。"></textarea>
+                </div>
+
+                <div class="field">
+                    <label class="field-label" for="github_url">GITHUB URL</label>
+                    <input class="field-input" id="github_url" type="url" placeholder="https://github.com/xxxx">
+                </div>
+
+                <div class="field">
+                    <label class="field-label" for="mini_work">ミニ演習</label>
+                    <textarea class="field-input field-textarea" id="mini_work" placeholder="ここが文章提出が必要な場合にのみ表示される項目です。"></textarea>
+                </div>
+
+                <button class="primary-button" type="button">提出する</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
