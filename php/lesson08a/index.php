@@ -1,6 +1,7 @@
 <?php
 $name = trim($_POST['name'] ?? '');
 $comment = trim($_POST['comment'] ?? '');
+$email = trim($_POST['email'] ?? '');
 $errors = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -10,6 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($comment === '') {
         $errors[] = 'コメントを入力してください。';
+    }
+
+    if ($email === '') {
+        $errors[] = 'emailを入力してください。';
     }
 }
 ?>
@@ -35,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p>受け取りました。</p>
         <p>名前: <?php echo htmlspecialchars($name, ENT_QUOTES, 'UTF-8'); ?></p>
         <p>コメント: <?php echo nl2br(htmlspecialchars($comment, ENT_QUOTES, 'UTF-8')); ?></p>
+        <p>email: <?php echo nl2br(htmlspecialchars($email, ENT_QUOTES, 'UTF-8')); ?></p>
     <?php endif; ?>
 
     <form action="" method="POST">
@@ -46,6 +52,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div>
             <label for="comment">コメント</label>
             <textarea id="comment" name="comment"><?php echo htmlspecialchars($comment, ENT_QUOTES, 'UTF-8'); ?></textarea>
+        </div>
+
+        <div>
+            <label for="email">email</label>
+            <input id="email" type="email" name="email" value="<?php echo htmlspecialchars($email, ENT_QUOTES, 'UTF-8'); ?>">
         </div>
 
         <button type="submit">送信する</button>
