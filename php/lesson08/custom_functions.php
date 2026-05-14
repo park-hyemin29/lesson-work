@@ -1,8 +1,8 @@
 <?php
 
 function formatUserName(string $name){
-	return strtoupper($name);
+	return strtoupper($name).'さん';
 }
 
-echo formatUserName('taro').'さん';
+echo formatUserName('taro');
 
