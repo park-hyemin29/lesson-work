@@ -40,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p>受け取りました。</p>
         <p>名前: <?php echo htmlspecialchars($name, ENT_QUOTES, 'UTF-8'); ?></p>
         <p>コメント: <?php echo nl2br(htmlspecialchars($comment, ENT_QUOTES, 'UTF-8')); ?></p>
+        <p>email: <?php echo (htmlspecialchars($email, ENT_QUOTES, 'UTF-8')); ?></p>
     <?php endif; ?>
 
     <form action="" method="POST">
