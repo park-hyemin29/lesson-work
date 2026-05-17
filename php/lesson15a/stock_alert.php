@@ -1,5 +1,7 @@
 <?php
 
+const LOW_STOCK_THRESHOLD = 5;
+
 $products = [
     ['name' => 'Pen', 'stock' => 12],
     ['name' => 'Notebook', 'stock' => 4],
@@ -9,7 +11,8 @@ $products = [
 
 function isLowStock(array $product): bool
 {
-    return $product['stock'] <= 5;
+	return $product['stock'] <= LOW_STOCK_THRESHOLD;
+    //return $product['stock'] <= 5;
 }
 
 echo "在庫アラート\n";
