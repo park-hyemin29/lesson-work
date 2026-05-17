@@ -1,29 +1,38 @@
 <?php
 
-$profile_list = [
+$profileList = [
     ['name' => "Taro", 'point' => 1200],
     ['name' => "Hanako", 'point' => 780],
     ['name' => "Ken", 'point' => 300],
 ];
 
-class Member {
-    public function rank(array $profile) : string {
-        if ($profile['point'] >= 1000) {
+class Member
+{
+    private const GOLD_RANK_THRESHOLD = 1000;
+    private const SILVER_RANK_THRESHOLD = 500;
+
+    public function rank(array $profile): string
+    {
+        if ($profile['point'] >= self::GOLD_RANK_THRESHOLD) {
             return 'Gold';
         }
-        if ($profile['point'] >= 500) {
+
+        if ($profile['point'] >= self::SILVER_RANK_THRESHOLD) {
             return 'Silver';
         }
+
         return 'Bronze';
     }
 
-    public function profile(array $profile_list) : string {
-        $list;
+    public function buildRankList(array $profileList): string
+    {
+        $list = '';
 
-        foreach ($profile_list as $row) {
-            $name = $row['name'];
-            $rank = $this->rank($row);
-            $list= "{$name}: {$rank}\n";
+        foreach ($profileList as $profile) {
+            $name = $profile['name'];
+            $rank = $this->rank($profile);
+
+            $list .= "{$name}: {$rank}\n";
         }
 
         return $list;
@@ -32,7 +41,4 @@ class Member {
 
 $member = new Member();
 
-for ($i = 0; $i < count($profile_list); $i++) {
-    $row = $profile_list[$i];
-    echo "{$row['name']}: {$member->rank($row)}\n";
-}
+echo $member->buildRankList($profileList);
