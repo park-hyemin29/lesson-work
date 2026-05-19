@@ -2,10 +2,10 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>投稿一覧</title>
+    <title>詳細画面へのリンク</title>
 </head>
 <body>
-    <h1>投稿一覧</h1>
+    <h1>詳細画面へのリンク</h1>
 
     @if (session('message'))
         <p>{{ session('message') }}</p>
@@ -15,7 +15,9 @@
 
     @forelse ($posts as $post)
         <article>
-            <h2>{{ $post->title }}</h2>
+            <h2>
+                <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
+            </h2>
             <p>{{ $post->body }}</p>
         </article>
         <hr>
