@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    public function index()
+    {
+        $posts = Post::latest()->get();
+        return view('posts.index', compact('posts'));
+    }
+
     public function create()
     {
         return view('posts.create');
@@ -24,7 +30,6 @@ class PostController extends Controller
         $post->body = $validated['body'];
         $post->save();
 
-        return redirect('/posts/create')->with('message', '投稿を保存しました。');
+        return redirect('/posts')->with('message', '投稿を保存しました。');
     }
 }
-
