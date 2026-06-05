@@ -26,6 +26,17 @@
                 <div class="alert success-alert">{{ session('message') }}</div>
             @endif
 
+            <form class="search-form" action="/posts" method="GET">
+                <div class="field search-field">
+                    <label class="field-label" for="keyword">キーワード検索</label>
+                    <input class="field-input" id="keyword" type="text" name="keyword" value="{{ $keyword }}" placeholder="タイトルで検索">
+                </div>
+
+                <div class="actions">
+                    <button class="primary-button" type="submit">検索する</button>
+                    <a class="button-link secondary-button" href="/posts">検索をリセット</a>
+                </div>
+            </form>
             <div class="post-list">
                 @forelse ($posts as $post)
                     <article class="post-card stack-sm">
