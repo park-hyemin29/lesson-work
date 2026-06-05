@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function index(Request $request)
-    {
+public function index(Request $request)
+{
         $keyword = $request->query('keyword');
 
         $posts = Post::query()
@@ -16,7 +16,8 @@ class PostController extends Controller
                 $query->where('title', 'like', '%' . $keyword . '%');
             })
             ->latest()
-            ->get();
+            ->paginate(5)
+            ->withQueryString();
 
         return view('posts.index', compact('posts', 'keyword'));
     }
