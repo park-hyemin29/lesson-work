@@ -37,6 +37,7 @@
                     <a class="button-link secondary-button" href="/posts">検索をリセット</a>
                 </div>
             </form>
+
             <div class="post-list">
                 @forelse ($posts as $post)
                     <article class="post-card stack-sm">
@@ -49,6 +50,10 @@
                 @empty
                     <div class="empty-state">まだ投稿がありません。</div>
                 @endforelse
+            </div>
+            
+            <div class="pagination-wrap">
+                {{ $posts->links('pagination::simple-default') }}
             </div>
         </section>
     </main>
